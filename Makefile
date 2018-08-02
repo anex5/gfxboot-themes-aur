@@ -78,7 +78,7 @@ installdir: install.config install $(INCLUDES)
 ifdef DEFAULT_LANG
 	@echo $(DEFAULT_LANG) >install/lang
 endif
-	@cd install && find | sed -e "s/ /\n/g" | grep -v bootlogo | cpio --quiet -o >bootlogo
+	@cd install && find | sed -e "s/ /\n/g" | grep -v bootlogo | grep -v log | cpio --quiet -o >bootlogo
 	@tar -C install -czf install/bootlogo.tar.gz bootlogo $(INST_EXT)
 
 font:
